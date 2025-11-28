@@ -1,0 +1,2 @@
+<navigation-bar title="便捷数据查询" back="{{true}}" color="#222" background="#fff"></navigation-bar>
+<view class="placeholder">便捷数据查询页面（待开发）</view>

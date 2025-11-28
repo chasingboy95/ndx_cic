@@ -1,0 +1,46 @@
+.roi-container {
+	padding: 48rpx 32rpx 0 32rpx;
+}
+.form-item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 40rpx;
+}
+.label {
+	width: 200rpx;
+	font-size: 32rpx;
+	color: #19be6b;
+	font-weight: 500;
+}
+.input {
+	flex: 1;
+	border: 2rpx solid #d0f5c8;
+	border-radius: 12rpx;
+	padding: 18rpx 24rpx;
+	font-size: 32rpx;
+	color: #222;
+	background: #f8fff8;
+	outline: none;
+}
+.calc-btn {
+	width: 100%;
+	margin-top: 32rpx;
+	background: linear-gradient(90deg, #19be6b 0%, #5adbb5 100%);
+	color: #fff;
+	font-size: 34rpx;
+	border-radius: 12rpx;
+	font-weight: bold;
+	box-shadow: 0 4rpx 16rpx #e0ffe0;
+}
+.result-area {
+	margin-top: 48rpx;
+	text-align: center;
+	font-size: 34rpx;
+	color: #333;
+}
+.result {
+	color: #19be6b;
+	font-weight: bold;
+	margin-left: 8rpx;
+	font-size: 38rpx;
+}

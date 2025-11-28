@@ -1,0 +1,94 @@
+<navigation-bar title="房贷计算器" back="{{true}}" color="#222" background="#fff"></navigation-bar>
+<view class="mortgage-container">
+	<!-- 顶部tab -->
+	<view class="tab-bar">
+		<view class="tab-item {{tabIndex===0?'active':''}}" bindtap="onTabChange" data-index="0">商业、公积金贷款</view>
+		<view class="tab-item {{tabIndex===1?'active':''}}" bindtap="onTabChange" data-index="1">组合贷款</view>
+	</view>
+	<block wx:if="{{tabIndex===0}}">
+		<view class="form-group">
+			<view class="form-row required">
+				<text class="row-label">*贷款总额：</text>
+				<input class="row-input" type="digit" placeholder="贷款金额" value="{{total}}" bindinput="onInputChange" data-key="total" />
+				<text class="row-unit">万</text>
+			</view>
+			<view class="form-row required">
+				<text class="row-label">*按揭年数</text>
+				<picker mode="selector" range="{{yearOptions}}" value="{{yearIndex}}" bindchange="onYearChange">
+					<view class="row-value row-picker">{{yearOptions[yearIndex]}} 年</view>
+				</picker>
+			</view>
+			<view class="form-row required">
+				<text class="row-label">*贷款年利率：</text>
+				<input class="row-input" type="digit" placeholder="贷款年利率" value="{{rate}}" bindinput="onInputChange" data-key="rate" />
+				<text class="row-unit">%</text>
+			</view>
+			<view class="form-row">
+				<text class="row-label">还款方式:</text>
+				<label class="radio-label">
+					<radio value="debx" checked="{{repayType==='debx'}}" bindchange="onRepayTypeChange" />等额本息
+				</label>
+				<label class="radio-label">
+					<radio value="debj" checked="{{repayType==='debj'}}" bindchange="onRepayTypeChange" />等额本金
+				</label>
+			</view>
+		</view>
+	</block>
+	<block wx:elif="{{tabIndex===1}}">
+		<view class="form-group">
+			<view class="form-row required">
+				<text class="row-label">*商业贷款金额：</text>
+				<input class="row-input" type="digit" placeholder="商业贷款金额" value="{{businessTotal}}" bindinput="onInputChange" data-key="businessTotal" />
+				<text class="row-unit">万</text>
+			</view>
+			<view class="form-row required">
+				<text class="row-label">*公积金贷款金额：</text>
+				<input class="row-input" type="digit" placeholder="公积金贷款金额" value="{{fundTotal}}" bindinput="onInputChange" data-key="fundTotal" />
+				<text class="row-unit">万</text>
+			</view>
+			<view class="form-row required">
+				<text class="row-label">*按揭年数</text>
+				<picker mode="selector" range="{{yearOptions}}" value="{{yearIndex}}" bindchange="onYearChange">
+					<view class="row-value row-picker">{{yearOptions[yearIndex]}} 年</view>
+				</picker>
+			</view>
+			<view class="form-row required">
+				<text class="row-label">*商业贷款年利率：</text>
+				<input class="row-input" type="digit" placeholder="商业贷款年利率" value="{{businessRate}}" bindinput="onInputChange" data-key="businessRate" />
+				<text class="row-unit">%</text>
+			</view>
+			<view class="form-row required">
+				<text class="row-label">*公积金贷款年利率：</text>
+				<input class="row-input" type="digit" placeholder="公积金贷款年利率" value="{{fundRate}}" bindinput="onInputChange" data-key="fundRate" />
+				<text class="row-unit">%</text>
+			</view>
+			<view class="form-row">
+				<text class="row-label">还款方式:</text>
+				<label class="radio-label">
+					<radio value="debx" checked="{{repayType==='debx'}}" bindchange="onRepayTypeChange" />等额本息
+				</label>
+				<label class="radio-label">
+					<radio value="debj" checked="{{repayType==='debj'}}" bindchange="onRepayTypeChange" />等额本金
+				</label>
+			</view>
+		</view>
+	</block>
+	<view class="result-group">
+		<view class="result-row">
+			<text class="result-label">每月还款：</text>
+			<text class="result-value {{monthly!==''?'result-em':'result-placeholder'}}">{{monthly!==''?monthly:'点击计算得出'}}</text>
+		</view>
+		<view class="result-row">
+			<text class="result-label">利息总额：</text>
+			<text class="result-value {{interest!==''?'result-em':'result-placeholder'}}">{{interest!==''?interest:'点击计算得出'}}</text>
+		</view>
+		<view class="result-row">
+			<text class="result-label">还款总额：</text>
+			<text class="result-value {{totalPay!==''?'result-em':'result-placeholder'}}">{{totalPay!==''?totalPay:'点击计算得出'}}</text>
+		</view>
+	</view>
+	<view class="btn-group">
+		<button class="calc-btn" type="primary" bindtap="onCalc">计算</button>
+		<button class="reset-btn" bindtap="onReset">复位</button>
+	</view>
+</view>

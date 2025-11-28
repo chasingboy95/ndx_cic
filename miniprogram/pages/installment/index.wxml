@@ -1,0 +1,19 @@
+<navigation-bar title="分期利率计算器" back="{{true}}" color="#222" background="#fff"></navigation-bar>
+<view class="installment-container">
+	<view class="form-item">
+		<text class="label">分期总金额(元)</text>
+		<input class="input" type="digit" placeholder="请输入总金额" value="{{total}}" bindinput="onInputChange" data-key="total" />
+	</view>
+	<view class="form-item">
+		<text class="label">期数</text>
+		<input class="input" type="number" placeholder="请输入期数" value="{{periods}}" bindinput="onInputChange" data-key="periods" />
+	</view>
+	<view class="form-item">
+		<text class="label">每期还款(元)</text>
+		<input class="input" type="digit" placeholder="请输入每期还款" value="{{payment}}" bindinput="onInputChange" data-key="payment" />
+	</view>
+	<button class="calc-btn" type="primary" bindtap="onCalc">计算</button>
+	<view class="result-area" wx:if="{{result !== null}}">
+		<text>等额本息年化利率：<text class="result">{{result}}</text> %</text>
+	</view>
+</view>

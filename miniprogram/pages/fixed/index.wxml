@@ -1,0 +1,44 @@
+<navigation-bar title="定投计算器" back="{{true}}" color="#222" background="#fff"></navigation-bar>
+<view class="fixed-container">
+	<view class="form-group">
+		<view class="form-row">
+			<text class="row-label">定投周期</text>
+			<picker mode="selector" range="{{periodOptions}}" value="{{periodIndex}}" bindchange="onPeriodChange">
+				<view class="row-value row-picker">{{periodOptions[periodIndex]}}</view>
+			</picker>
+		</view>
+		<view class="form-row required">
+			<text class="row-label">*每期定投：</text>
+			<input class="row-input" type="digit" placeholder="每期定投金额" value="{{amount}}" bindinput="onInputChange" data-key="amount" />
+			<text class="row-unit">元</text>
+		</view>
+		<view class="form-row required">
+			<text class="row-label">*定投年限：</text>
+			<input class="row-input" type="number" placeholder="打算定投多久" value="{{years}}" bindinput="onInputChange" data-key="years" />
+			<text class="row-unit">年</text>
+		</view>
+		<view class="form-row required">
+			<text class="row-label">*年化收益率:</text>
+			<input class="row-input" type="digit" placeholder="预期年化收益率" value="{{rate}}" bindinput="onInputChange" data-key="rate" />
+			<text class="row-unit">%</text>
+		</view>
+	</view>
+	<view class="result-group">
+		<view class="result-row">
+			<text class="result-label">投入总本金：</text>
+			<text class="result-value {{principal!==''?'result-em':'result-placeholder'}}">{{principal!==''?principal:'点击计算得出'}}</text>
+		</view>
+		<view class="result-row">
+			<text class="result-label">定投总收益：</text>
+			<text class="result-value {{profit!==''?'result-em':'result-placeholder'}}">{{profit!==''?profit:'点击计算得出'}}</text>
+		</view>
+		<view class="result-row">
+			<text class="result-label">期末总资产：</text>
+			<text class="result-value {{final!==''?'result-em':'result-placeholder'}}">{{final!==''?final:'点击计算得出'}}</text>
+		</view>
+	</view>
+	<view class="btn-group">
+		<button class="calc-btn" type="primary" bindtap="onCalc">计算</button>
+		<button class="reset-btn" bindtap="onReset">复位</button>
+	</view>
+</view>

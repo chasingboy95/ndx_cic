@@ -1,0 +1,2 @@
+<navigation-bar title="好价格计算" back="{{true}}" color="#222" background="#fff"></navigation-bar>
+<view class="placeholder">好价格计算页面（待开发）</view>

@@ -1,0 +1,72 @@
+/**index.scss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+// 九宫格美化（全部顶级展开，避免嵌套导致 WXSS 编译失败）
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32rpx 32rpx;
+  margin: 48rpx 32rpx 0 32rpx;
+}
+.grid-item {
+  background: linear-gradient(135deg, #f6fff8 0%, #e6f9f0 100%);
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx #e5f7e5;
+  font-size: 32rpx;
+  color: #333;
+  height: 160rpx;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.grid-item:active {
+  box-shadow: 0 8rpx 32rpx #b2f2d8;
+  transform: scale(0.97);
+}
+.grid-icon {
+  font-size: 56rpx;
+  color: #19be6b;
+  margin-bottom: 12rpx;
+  text-shadow: 0 2rpx 8rpx #e0ffe0;
+}
+.grid-text {
+  font-size: 30rpx;
+  color: #222;
+  font-weight: 500;
+  letter-spacing: 1rpx;
+}
+.iconfont {
+  font-style: normal;
+}
+    font-size: 32rpx;
+    color: #333;
+    height: 160rpx;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .grid-item:active {
+    box-shadow: 0 8rpx 32rpx #b2f2d8;
+    transform: scale(0.97);
+  }
+  .grid-icon {
+    font-size: 56rpx;
+    color: #19be6b;
+    margin-bottom: 12rpx;
+    text-shadow: 0 2rpx 8rpx #e0ffe0;
+  }
+  .grid-text {
+    font-size: 30rpx;
+    color: #222;
+    font-weight: 500;
+    letter-spacing: 1rpx;
+  }
+  .iconfont {
+    font-style: normal;
+  }

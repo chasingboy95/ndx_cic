@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 用户信息与登录模块已移除，仅保留九宫格入口 -->
+    <!-- 九宫格理财计算器入口 -->
+    <view class="grid-container">
+      <block wx:for="{{gridList}}" wx:key="index">
+        <view class="grid-item" data-page="{{item.page}}" bindtap="onGridTap">
+          <view class="grid-icon">
+            <!-- 可替换为 iconfont 或本地图片，暂用内置icon名做占位 -->
+            <text class="iconfont icon-{{item.icon}}"></text>
+          </view>
+          <view class="grid-text">{{item.text}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>
